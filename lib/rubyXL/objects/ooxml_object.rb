@@ -159,6 +159,7 @@ module RubyXL
                             end
 
           child_node_params = known_child_nodes[child_node_name]
+          next if child_node_params.nil? && child_node_name == 'xxl21:alternateUrls'
           raise "Unknown child node [#{child_node_name}] for element [#{node.name}]" if child_node_params.nil?
           parsed_object = child_node_params[:class].parse(child_node, known_namespaces)
           if child_node_params[:is_array] then
